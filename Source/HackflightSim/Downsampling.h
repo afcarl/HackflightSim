@@ -14,7 +14,7 @@ class Downsampling : public VisionAlgorithm {
 
 public:
 
-    Downsampling(AHUD*hud, int leftx, int topy, int rows, int cols);
+    Downsampling(AHUD*hud, int leftx, int topy);
 
     ~Downsampling();
 
@@ -23,13 +23,6 @@ public:
 private:
 
 	const int DOWNSAMPLE_RATIO = 16;
+
     const int IMAGE_MARGIN = 20;
-
-	int _leftx;
-	int _topy;
-	int _rows;
-	int _cols;
-	bool _ready;
-
-	AHUD* _hud;
 };
