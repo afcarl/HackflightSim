@@ -18,7 +18,7 @@ public:
 
     ~Downsampling();
 
-	virtual void perform(uint8_t* imagergb) override;
+	virtual void perform(cv::Mat & bgrimg) override;
 
 private:
 
@@ -32,6 +32,4 @@ private:
 	bool _ready;
 
 	AHUD* _hud;
-
-    uint8_t * _imagegray;
 };

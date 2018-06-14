@@ -16,6 +16,8 @@
 
 #include "VisionAlgorithm.h"
 
+#include <opencv2/core.hpp>
+
 #include "VisionHUD.generated.h"
 
 /**
@@ -49,8 +51,10 @@ class HACKFLIGHTSIM_API AVisionHUD : public AHUD
 	// Support for vision algorithms
 	int _rows;
 	int _cols;
-	uint8_t* _imagergb;
-    //
+   
+	// BGR color bytes array
+	uint8_t* _bgrbytes;
+    
 	// implementation of your vision algorithm
 	VisionAlgorithm* _algorithm;
 };
