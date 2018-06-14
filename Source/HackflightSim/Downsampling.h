@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-* EdgeDetection.h: OpenCV demo algorithm flow for UnrealEngine4
+* Downsampling.h: Header for OpenCV downsampling implementation
 *
 * Copyright (C) 2017 Simon D. Levy
 *
@@ -10,13 +10,13 @@
 
 #include "VisionAlgorithm.h"
 
-class EdgeDetection : public VisionAlgorithm {
+class Downsampling : public VisionAlgorithm {
 
 public:
 
-    EdgeDetection(AHUD*hud, int leftx, int topy, int rows, int cols);
+    Downsampling(AHUD*hud, int leftx, int topy, int rows, int cols);
 
-    ~EdgeDetection();
+    ~Downsampling();
 
 	virtual void perform(uint8_t* imagergb) override;
 

@@ -1,28 +1,28 @@
 #pragma once
 
 /*
-* EdgeDetection.cpp: OpenCV demo algorithm flow for UnrealEngine4
+* Downsampling.cpp: OpenCV downsampling implementation for HackflightSim vision
 *
 * Copyright (C) 2017 Simon D. Levy
 *
 * MIT License
 */
 
-#include "EdgeDetection.h"
+#include "Downsampling.h"
 
 #include <opencv2/core.hpp>
 #include <opencv2/video/tracking.hpp>
 
-EdgeDetection::EdgeDetection(AHUD* hud, int leftx, int topy, int rows, int cols) : 
+Downsampling::Downsampling(AHUD* hud, int leftx, int topy, int rows, int cols) : 
 	_leftx(leftx), _topy(topy), _hud(hud),  _rows(rows), _cols(cols)
 {
 }
 
-EdgeDetection::~EdgeDetection()
+Downsampling::~Downsampling()
 {
 }
 
-void EdgeDetection::perform(uint8_t* imagergb)
+void Downsampling::perform(uint8_t* imagergb)
 {
     // RGB->gray formula from https ://www.johndcook.com/blog/2009/08/24/algorithms-convert-color-grayscale/
 	cv::Mat gray(_rows, _cols, CV_8UC1);

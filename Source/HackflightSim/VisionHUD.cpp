@@ -10,7 +10,7 @@
 #include "VisionHUD.h"
 //
 // Use whatever machine-vision algorithm you like
-#include "EdgeDetection.h"
+#include "Downsampling.h"
 
 AVisionHUD::AVisionHUD()
 {
@@ -34,7 +34,7 @@ AVisionHUD::AVisionHUD()
 	_imagergb = new uint8_t[_rows*_cols * 3];
     
 	// Specify a machine-vision algorithm
-	_algorithm = new EdgeDetection(this, LEFTX, TOPY, _rows, _cols);
+	_algorithm = new Downsampling(this, LEFTX, TOPY, _rows, _cols);
 }
 
 AVisionHUD::~AVisionHUD()
