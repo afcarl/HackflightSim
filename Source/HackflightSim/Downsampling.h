@@ -22,12 +22,8 @@ public:
 
 private:
 
-	// Arbitrary edge-detection params
-	const int LOW_THRESHOLD = 50;
-	const int RATIO         = 3;
-	const int KERNEL_SIZE   = 3;
-
-	FColor EDGE_COLOR = FColor::Green;
+	const int DOWNSAMPLE_RATIO = 2;
+    const int IMAGE_MARGIN = 20;
 
 	int _leftx;
 	int _topy;
@@ -36,4 +32,6 @@ private:
 	bool _ready;
 
 	AHUD* _hud;
+
+    uint8_t * _imagegray;
 };
