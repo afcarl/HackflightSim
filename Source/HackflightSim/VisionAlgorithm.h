@@ -9,9 +9,8 @@
 */
 
 #include "Engine.h"
-
+#include "VisionHUD.h"
 #include <opencv2/core.hpp>
-
 #include <cstdint>
 
 /**
@@ -24,7 +23,7 @@ public:
 	/**
 	 * Constructor gets HUD and its coordinates for possible display.
 	*/
-    VisionAlgorithm(AHUD * hud, int leftx, int topy) : _hud(hud), _leftx(leftx), _topy(topy) { }
+    VisionAlgorithm(class AVisionHUD * hud, int leftx, int topy) : _hud(hud), _leftx(leftx), _topy(topy) { }
 
 	/**
 	 * Mandatory virtual destructor to avoid compiler errors.
@@ -42,6 +41,6 @@ protected:
 	int _leftx;
 	int _topy;
 
-	AHUD * _hud;
+	AVisionHUD * _hud;
 };
 

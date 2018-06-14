@@ -14,7 +14,7 @@ class Downsampling : public VisionAlgorithm {
 
 public:
 
-    Downsampling(AHUD*hud, int leftx, int topy);
+    Downsampling(class AVisionHUD*hud, int leftx, int topy);
 
     ~Downsampling();
 

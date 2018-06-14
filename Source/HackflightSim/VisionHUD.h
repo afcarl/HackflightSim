@@ -27,21 +27,27 @@ UCLASS()
 class HACKFLIGHTSIM_API AVisionHUD : public AHUD
 {
 	GENERATED_BODY()
+
+    public:
 	
 	AVisionHUD();
 	~AVisionHUD();
 
+    void drawBorder(int leftx=LEFTX, int topy=TOPY);
+
 	virtual void DrawHUD() override;
 
-	const float LEFTX  = 20;
-	const float TOPY   = 40;
+    private:
+
+	static const int LEFTX  = 20;
+	static const int TOPY   = 40;
 	const float WIDTH  = 256;
 	const float HEIGHT = 128;
 	
 	const FLinearColor BORDER_COLOR = FLinearColor::Yellow;
 	const float BORDER_WIDTH = 2.0f;
 
-	void drawBorder(float lx, float uy, float rx, float by);
+	void drawBorderLine(float lx, float uy, float rx, float by);
 
 	// Access to Vision camera
 	UTextureRenderTarget2D* VisionTextureRenderTarget;
@@ -56,5 +62,5 @@ class HACKFLIGHTSIM_API AVisionHUD : public AHUD
 	uint8_t* _bgrbytes;
     
 	// implementation of your vision algorithm
-	VisionAlgorithm* _algorithm;
+	class VisionAlgorithm * _algorithm;
 };

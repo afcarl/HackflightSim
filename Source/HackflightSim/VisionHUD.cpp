@@ -76,27 +76,21 @@ void AVisionHUD::DrawHUD()
     _algorithm->perform(bgrimg);
  
 	// Draw a border around the image
-
-	float rightx = LEFTX + WIDTH;
-	float bottomy = TOPY + HEIGHT;
-
-	drawBorder(LEFTX, TOPY, rightx, TOPY);
-	drawBorder(rightx, TOPY, rightx, bottomy);
-	drawBorder(rightx, bottomy, LEFTX, bottomy);
-	drawBorder(LEFTX, bottomy, LEFTX, TOPY);
+    drawBorder();
 }
 
-void AVisionHUD::drawBorder(float lx, float uy, float rx, float by)
+void AVisionHUD::drawBorder(int leftx, int topy)
+{
+
+	float rightx  = leftx + WIDTH;
+	float bottomy = topy + HEIGHT;
+
+	drawBorderLine(leftx, topy, rightx, topy);
+	drawBorderLine(rightx, topy, rightx, bottomy);
+	drawBorderLine(rightx, bottomy, leftx, bottomy);
+	drawBorderLine(leftx, bottomy, leftx, topy);
+}
+void AVisionHUD::drawBorderLine(float lx, float uy, float rx, float by)
 {
 	DrawLine(lx, uy, rx, by, BORDER_COLOR, BORDER_WIDTH);
 }
-
-
-
-
-
-
-
-
-
-
