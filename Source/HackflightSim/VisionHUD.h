@@ -14,6 +14,8 @@
 #include "GameFramework/HUD.h"
 #include "Engine/TextureRenderTarget2D.h"
 
+#include "VisionAlgorithm.h"
+
 #include "VisionHUD.generated.h"
 
 /**
@@ -25,6 +27,7 @@ class HACKFLIGHTSIM_API AVisionHUD : public AHUD
 	GENERATED_BODY()
 	
 	AVisionHUD();
+	~AVisionHUD();
 
 	virtual void DrawHUD() override;
 
@@ -47,4 +50,7 @@ class HACKFLIGHTSIM_API AVisionHUD : public AHUD
 	int _rows;
 	int _cols;
 	uint8_t* _imagergb;
+    //
+	// implementation of your vision algorithm
+	VisionAlgorithm* _algorithm;
 };

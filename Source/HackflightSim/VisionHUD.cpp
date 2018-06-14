@@ -8,6 +8,9 @@
 
 
 #include "VisionHUD.h"
+//
+// Use whatever machine-vision algorithm you like
+#include "EdgeDetection.h"
 
 AVisionHUD::AVisionHUD()
 {
@@ -29,8 +32,16 @@ AVisionHUD::AVisionHUD()
 	_rows = VisionTextureRenderTarget->SizeY;
 	_cols = VisionTextureRenderTarget->SizeX;
 	_imagergb = new uint8_t[_rows*_cols * 3];
+    
+	// Specify a machine-vision algorithm
+	_algorithm = new EdgeDetection(this, LEFTX, TOPY, _rows, _cols);
 }
 
+AVisionHUD::~AVisionHUD()
+{
+	delete _imagergb;
+	delete _algorithm;
+}
 
 void AVisionHUD::DrawHUD()
 {
@@ -67,6 +78,9 @@ void AVisionHUD::DrawHUD()
 	drawBorder(rightx, TOPY, rightx, bottomy);
 	drawBorder(rightx, bottomy, LEFTX, bottomy);
 	drawBorder(LEFTX, bottomy, LEFTX, TOPY);
+    
+	// Run your vision algorithm
+	_algorithm->perform(_imagergb);
 }
 
 void AVisionHUD::drawBorder(float lx, float uy, float rx, float by)
