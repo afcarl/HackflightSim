@@ -22,7 +22,7 @@ public:
 
 private:
 
-	const int DOWNSAMPLE_RATIO = 2;
+	const int DOWNSAMPLE_RATIO = 16;
     const int IMAGE_MARGIN = 20;
 
 	int _leftx;
